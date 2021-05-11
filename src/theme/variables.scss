@@ -74,163 +74,263 @@
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+
+	// Orange
+	--ion-color-orange:  #f47f1f;
+	--ion-color-orange-rgb: 244, 244, 244;
+	--ion-color-orange-contrast: #ffffff;
+	--ion-color-orange-contrast-rgb: 0, 0, 0;
+	--ion-color-orange-shade: #d7d8da;
+	--ion-color-orange-tint: #f5f6f9;
 }
 
-@media (prefers-color-scheme: dark) {
-  /*
-   * Dark Colors
-   * -------------------------------------------
-   */
+.ion-color-orange {
+	--ion-color-base: var(--ion-color-orange) !important;
+	--ion-color-base-rgb: var(--ion-color-orange-rgb) !important;
+	--ion-color-contrast: var(--ion-color-orange-contrast) !important;
+	--ion-color-contrast-rgb: var(--ion-color-orange-contrast-rgb) !important;
+	--ion-color-shade: var(--ion-color-orange-shade) !important;
+	--ion-color-tint: var(--ion-color-orange-tint) !important;
 
-  body {
-    --ion-color-primary: #428cff;
-    --ion-color-primary-rgb: 66,140,255;
-    --ion-color-primary-contrast: #ffffff;
-    --ion-color-primary-contrast-rgb: 255,255,255;
-    --ion-color-primary-shade: #3a7be0;
-    --ion-color-primary-tint: #5598ff;
-
-    --ion-color-secondary: #50c8ff;
-    --ion-color-secondary-rgb: 80,200,255;
-    --ion-color-secondary-contrast: #ffffff;
-    --ion-color-secondary-contrast-rgb: 255,255,255;
-    --ion-color-secondary-shade: #46b0e0;
-    --ion-color-secondary-tint: #62ceff;
-
-    --ion-color-tertiary: #6a64ff;
-    --ion-color-tertiary-rgb: 106,100,255;
-    --ion-color-tertiary-contrast: #ffffff;
-    --ion-color-tertiary-contrast-rgb: 255,255,255;
-    --ion-color-tertiary-shade: #5d58e0;
-    --ion-color-tertiary-tint: #7974ff;
-
-    --ion-color-success: #2fdf75;
-    --ion-color-success-rgb: 47,223,117;
-    --ion-color-success-contrast: #000000;
-    --ion-color-success-contrast-rgb: 0,0,0;
-    --ion-color-success-shade: #29c467;
-    --ion-color-success-tint: #44e283;
-
-    --ion-color-warning: #ffd534;
-    --ion-color-warning-rgb: 255,213,52;
-    --ion-color-warning-contrast: #000000;
-    --ion-color-warning-contrast-rgb: 0,0,0;
-    --ion-color-warning-shade: #e0bb2e;
-    --ion-color-warning-tint: #ffd948;
-
-    --ion-color-danger: #ff4961;
-    --ion-color-danger-rgb: 255,73,97;
-    --ion-color-danger-contrast: #ffffff;
-    --ion-color-danger-contrast-rgb: 255,255,255;
-    --ion-color-danger-shade: #e04055;
-    --ion-color-danger-tint: #ff5b71;
-
-    --ion-color-dark: #f4f5f8;
-    --ion-color-dark-rgb: 244,245,248;
-    --ion-color-dark-contrast: #000000;
-    --ion-color-dark-contrast-rgb: 0,0,0;
-    --ion-color-dark-shade: #d7d8da;
-    --ion-color-dark-tint: #f5f6f9;
-
-    --ion-color-medium: #989aa2;
-    --ion-color-medium-rgb: 152,154,162;
-    --ion-color-medium-contrast: #000000;
-    --ion-color-medium-contrast-rgb: 0,0,0;
-    --ion-color-medium-shade: #86888f;
-    --ion-color-medium-tint: #a2a4ab;
-
-    --ion-color-light: #222428;
-    --ion-color-light-rgb: 34,36,40;
-    --ion-color-light-contrast: #ffffff;
-    --ion-color-light-contrast-rgb: 255,255,255;
-    --ion-color-light-shade: #1e2023;
-    --ion-color-light-tint: #383a3e;
-  }
-
-  /*
-   * iOS Dark Theme
-   * -------------------------------------------
-   */
-
-  .ios body {
-    --ion-background-color: #000000;
-    --ion-background-color-rgb: 0,0,0;
-
-    --ion-text-color: #ffffff;
-    --ion-text-color-rgb: 255,255,255;
-
-    --ion-color-step-50: #0d0d0d;
-    --ion-color-step-100: #1a1a1a;
-    --ion-color-step-150: #262626;
-    --ion-color-step-200: #333333;
-    --ion-color-step-250: #404040;
-    --ion-color-step-300: #4d4d4d;
-    --ion-color-step-350: #595959;
-    --ion-color-step-400: #666666;
-    --ion-color-step-450: #737373;
-    --ion-color-step-500: #808080;
-    --ion-color-step-550: #8c8c8c;
-    --ion-color-step-600: #999999;
-    --ion-color-step-650: #a6a6a6;
-    --ion-color-step-700: #b3b3b3;
-    --ion-color-step-750: #bfbfbf;
-    --ion-color-step-800: #cccccc;
-    --ion-color-step-850: #d9d9d9;
-    --ion-color-step-900: #e6e6e6;
-    --ion-color-step-950: #f2f2f2;
-
-    --ion-item-background: #000000;
-
-    --ion-card-background: #1c1c1d;
-  }
-
-  .ios ion-modal {
-    --ion-background-color: var(--ion-color-step-100);
-    --ion-toolbar-background: var(--ion-color-step-150);
-    --ion-toolbar-border-color: var(--ion-color-step-250);
-  }
-
-
-  /*
-   * Material Design Dark Theme
-   * -------------------------------------------
-   */
-
-  .md body {
-    --ion-background-color: #121212;
-    --ion-background-color-rgb: 18,18,18;
-
-    --ion-text-color: #ffffff;
-    --ion-text-color-rgb: 255,255,255;
-
-    --ion-border-color: #222222;
-
-    --ion-color-step-50: #1e1e1e;
-    --ion-color-step-100: #2a2a2a;
-    --ion-color-step-150: #363636;
-    --ion-color-step-200: #414141;
-    --ion-color-step-250: #4d4d4d;
-    --ion-color-step-300: #595959;
-    --ion-color-step-350: #656565;
-    --ion-color-step-400: #717171;
-    --ion-color-step-450: #7d7d7d;
-    --ion-color-step-500: #898989;
-    --ion-color-step-550: #949494;
-    --ion-color-step-600: #a0a0a0;
-    --ion-color-step-650: #acacac;
-    --ion-color-step-700: #b8b8b8;
-    --ion-color-step-750: #c4c4c4;
-    --ion-color-step-800: #d0d0d0;
-    --ion-color-step-850: #dbdbdb;
-    --ion-color-step-900: #e7e7e7;
-    --ion-color-step-950: #f3f3f3;
-
-    --ion-item-background: #1e1e1e;
-
-    --ion-toolbar-background: #1f1f1f;
-
-    --ion-tab-bar-background: #1f1f1f;
-
-    --ion-card-background: #1e1e1e;
-  }
 }
+
+//Fonts
+//Poppins
+@font-face {
+	font-family: Poppins-Black;
+	font-style: black;
+	src: url("../assets/fonts/Poppins/Poppins-Black.ttf");
+}
+
+@font-face {
+	font-family: Poppins-BlackItalic;
+	font-style: blackItalic;
+	src: url("../assets/fonts/Poppins/Poppins-BlackItalic.ttf");
+}
+
+@font-face {
+	font-family: Poppins-Bold;
+	font-style: bold;
+	src: url("../assets/fonts/Poppins/Poppins-Bold.ttf");
+}
+
+@font-face {
+	font-family: Poppins-BoldItalic;
+	font-style: boldItalic;
+	src: url("../assets/fonts/Poppins/Poppins-BoldItalic.ttf");
+}
+
+@font-face {
+	font-family: Poppins-ExtraBold;
+	font-style: extraBold;
+	src: url("../assets/fonts/Poppins/Poppins-ExtraBold.ttf");
+}
+
+@font-face {
+	font-family: Poppins-ExtraBoldItalic;
+	font-style: extraBoldItalic;
+	src: url("../assets/fonts/Poppins/Poppins-ExtraBoldItalic.ttf");
+}
+
+@font-face {
+	font-family: Poppins-ExtraLight;
+	font-style: extraLight;
+	src: url("../assets/fonts/Poppins/Poppins-ExtraLight.ttf");
+}
+
+@font-face {
+	font-family: Poppins-ExtraLightItalic;
+	font-style: extraLightItalic;
+	src: url("../assets/fonts/Poppins/Poppins-ExtraLightItalic.ttf");
+}
+
+@font-face {
+	font-family: Poppins-Italic;
+	font-style: italic;
+	src: url("../assets/fonts/Poppins/Poppins-Italic.ttf");
+}
+
+
+@font-face {
+	font-family: Poppins-Light;
+	font-style: light;
+	src: url("../assets/fonts/Poppins/Poppins-Light.ttf");
+}
+
+@font-face {
+	font-family: Poppins-LightItalic;
+	font-style: lightItalic;
+	src: url("../assets/fonts/Poppins/Poppins-LightItalic.ttf");
+}
+
+@font-face {
+	font-family: Poppins-Medium;
+	font-style: medium;
+	src: url("../assets/fonts/Poppins/Poppins-Medium.ttf");
+}
+
+@font-face {
+	font-family: Poppins-MediumItalic;
+	font-style: medium;
+	src: url("../assets/fonts/Poppins/Poppins-MediumItalic.ttf");
+}
+
+@font-face {
+	font-family: Poppins-Regular;
+	font-style: regular;
+	src: url("../assets/fonts/Poppins/Poppins-Regular.ttf");
+}
+
+@font-face {
+	font-family: Poppins-SemiBold;
+	font-style: semiBold;
+	src: url("../assets/fonts/Poppins/Poppins-SemiBold.ttf");
+}
+
+@font-face {
+	font-family: Poppins-SemiBoldItalic;
+	font-style: semiBoldItalic;
+	src: url("../assets/fonts/Poppins/Poppins-SemiBoldItalic.ttf");
+}
+
+@font-face {
+	font-family: Poppins-Thin;
+	font-style: thin;
+	src: url("../assets/fonts/Poppins/Poppins-Thin.ttf");
+}
+
+@font-face {
+	font-family: Poppins-ThinItalic;
+	font-style: thinItalic;
+	src: url("../assets/fonts/Poppins/Poppins-ThinItalic.ttf");
+}
+
+//Raleway
+@font-face {
+	font-family: Raleway-Italic-VariableFont_wght;
+	src: url("../assets/fonts/Raleway/Raleway-Italic-VariableFont_wght.ttf");
+}
+
+@font-face {
+	font-family: Raleway-VariableFont_wght;
+	src: url("../assets/fonts/Raleway/Raleway-VariableFont_wght.ttf");
+}
+
+//Ralewat-static
+@font-face {
+	font-family: Raleway-Black;
+	font-style: black;
+	src: url("../assets/fonts/Raleway/static/Raleway-Black.ttf");
+}
+
+@font-face {
+	font-family: Raleway-BlackItalic;
+	font-style: blackItalic;
+	src: url("../assets/fonts/Raleway/static/Raleway-BlackItalic.ttf");
+}
+
+@font-face {
+	font-family: Raleway-Bold;
+	font-style: bold;
+	src: url("../assets/fonts/Raleway/static/Raleway-Bold.ttf");
+}
+
+@font-face {
+	font-family: Raleway-BoldItalic;
+	font-style: boldItalic;
+	src: url("../assets/fonts/Raleway/static/Raleway-BoldItalic.ttf");
+}
+
+@font-face {
+	font-family: Raleway-ExtraBold;
+	font-style: extraBold;
+	src: url("../assets/fonts/Raleway/static/Raleway-ExtraBold.ttf");
+}
+
+@font-face {
+	font-family: Raleway-ExtraBoldItalic;
+	font-style: extraBoldItalic;
+	src: url("../assets/fonts/Raleway/static/Raleway-ExtraBoldItalic.ttf");
+}
+
+@font-face {
+	font-family: Raleway-ExtraLight;
+	font-style: extraLight;
+	src: url("../assets/fonts/Raleway/static/Raleway-ExtraLight.ttf");
+}
+
+@font-face {
+	font-family: Raleway-ExtraLightItalic;
+	font-style: extraLightItalic;
+	src: url("../assets/fonts/Raleway/static/Raleway-ExtraLightItalic.ttf");
+}
+
+@font-face {
+	font-family: Raleway-Italic;
+	font-style: italic;
+	src: url("../assets/fonts/Raleway/static/Raleway-Italic.ttf");
+}
+
+@font-face {
+	font-family: Raleway-Light;
+	font-style: light;
+	src: url("../assets/fonts/Raleway/static/Raleway-Light.ttf");
+}
+
+@font-face {
+	font-family: Raleway-LightItalic;
+	font-style: lightItalic;
+	src: url("../assets/fonts/Raleway/static/Raleway-LightItalic.ttf");
+}
+
+@font-face {
+	font-family: Raleway-Medium;
+	font-style: medium;
+	src: url("../assets/fonts/Raleway/static/Raleway-Medium.ttf");
+}
+
+@font-face {
+	font-family: Raleway-MediumItalic;
+	font-style: mediumItalic;
+	src: url("../assets/fonts/Raleway/static/Raleway-MediumItalic.ttf");
+}
+
+@font-face {
+	font-family: Raleway-Regular;
+	font-style: regular;
+	src: url("../assets/fonts/Raleway/static/Raleway-Regular.ttf");
+}
+
+@font-face {
+	font-family: Raleway-SemiBold;
+	font-style: semiBold;
+	src: url("../assets/fonts/Raleway/static/Raleway-SemiBold.ttf");
+}
+
+@font-face {
+	font-family: Raleway-SemiBoldItalic;
+	font-style: semiBoldItalic;
+	src: url("../assets/fonts/Raleway/static/Raleway-SemiBoldItalic.ttf");
+}
+
+@font-face {
+	font-family: Raleway-Thin;
+	font-style: thin;
+	src: url("../assets/fonts/Raleway/static/Raleway-Thin.ttf");
+}
+
+@font-face {
+	font-family: Raleway-ThinItalic;
+	font-style: thinItalic;
+	src: url("../assets/fonts/Raleway/static/Raleway-ThinItalic.ttf");
+}
+
+
+
+
+
+
+
+
+
+
