@@ -1,5 +1,7 @@
 {
   "name": "virketShopping",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
