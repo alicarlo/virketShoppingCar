@@ -9,8 +9,8 @@ export interface IProduct{
 	is_favorite:		boolean,
 	score:					number,
 	description:		string,
-	colors:					Array<colors>,
-	reviews:				string
+	colors:					object,
+	reviews:				string,
 }
 
 export interface colors{	

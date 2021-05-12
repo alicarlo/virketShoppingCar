@@ -1,0 +1,186 @@
+ion-content {
+  --padding-bottom: 10px;
+  --padding-end: 10px;
+  --padding-start: 20px;
+  --padding-top: 20px;
+}
+
+.thumball{
+  //z-index: 3!important;
+  //position: absolute;
+	margin-top: 3px;
+  height: 55px;
+  width: 55px;
+  //background: red;
+  //left: 20px;
+	margin-left: 10px;
+  //top: 8%;
+  border-radius: 100px;
+}
+
+.heigthDiv{
+	height: 55px;
+}
+
+.containerTitle{
+  position: relative;
+  height: 100%;
+}
+
+.title{
+ 	margin: auto;
+  position: absolute;
+  top: 55%;
+  left: 0;
+  bottom: 0;
+	margin-left: -5%;
+}
+
+.titleSkeleton{
+	margin: auto;
+  position: absolute;
+  height: 50%;
+  top: 25%;
+  left: 0;
+  bottom: 0;
+  margin-left: -5%;
+}
+
+.buttonSearch{
+	font-size: 20px;
+  margin-top: 25%;
+}
+
+.heightSkeleton{
+	height: 35px;
+}
+
+.heightSliderSkeleton{
+	height:  175px;
+}
+
+.slide1{
+  width: 275px !important;
+}
+
+.card{
+	height: 175px;
+	width: 275px;
+	border-radius: 15px;
+  background: #ffffff;
+}
+
+.cardProducts{
+	height: 200px;
+	//width: 100%;
+	//width: 275px;
+	border-radius: 15px;
+  background: #ffffff;
+	margin: 	3px;
+	padding: 	10px;
+}
+
+.ion-padding{
+	padding: 0px
+}
+
+
+
+.divProductOffers{
+	width: 275px;
+	margin-top: -5px;
+  margin-left: -20%;
+}
+
+.divProductOffers{
+	//width: 275px;
+	//@at-root: -5px;
+  //margin-left: -20%;
+}
+
+.titleProductOffers{
+	font-family: Poppins-Medium; font-size: 12pt; color: #000000
+}
+
+.titleProduct{
+	font-family: Poppins-Medium; font-size: 10pt; color: #000000;
+	margin-top: -10px;
+	margin-left: -2px;
+}
+
+.titleBrand{
+	font-family: Poppins-Medium; font-size: 8pt; color: #bdbcbc
+}
+
+.titleName{
+	font-family: Poppins-Medium; font-size: 12pt; color: #4f4e4e
+}
+
+.finalPriceDiscount{
+	font-family: Poppins-Bold; font-size: 14pt; color: #4f4e4e;
+	margin-top: -15px;
+	margin-left: 20px;
+}
+
+.finalPriceTotal{
+	font-family: Poppins-Medium; font-size: 12pt; color: #ffd056;
+	//margin-top: -15px;
+	text-decoration: line-through;
+	margin-left: -5px;
+}
+
+.sizeContainerDiv{
+	width: 275px; margin-top: -20px;
+}
+
+.imageOffer{
+	height: 65px;
+    z-index: 9999;
+    position: relative;
+    margin-top: -25px;
+    transform: rotate(20deg);
+}
+
+.divProductOffersPrice{
+	//width: 275px;
+	margin-top: -25px;
+	margin-left: -32%;
+}
+
+.triangleRotate{
+	margin-left: 37%; 
+	transform: rotate(-20deg);
+}
+
+.triangle {
+	position: relative;
+	background-color: #f8ba88;
+	text-align: left;
+	opacity: 0.6;
+	//transform: rotate(-20deg);
+}
+.triangle:before,
+.triangle:after {
+	content: '';
+	position: absolute;
+	background-color: inherit;
+}
+.triangle,
+.triangle:before,
+.triangle:after {
+	width:  50px;
+	height: 50px;
+	border-top-right-radius: 50%;
+}
+
+.triangle {
+	transform: rotate(-60deg) skewX(-30deg) scale(1,.866);
+}
+.triangle:before {
+	transform: rotate(-135deg) skewX(-45deg) scale(1.414,.707) translate(0,-50%);
+}
+.triangle:after {
+	transform: rotate(135deg) skewY(-45deg) scale(.707,1.414) translate(50%);
+}
+
+

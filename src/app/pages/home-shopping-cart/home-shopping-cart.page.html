@@ -1,9 +1,126 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>homeShoppingCart</ion-title>
+<ion-header class="ion-no-border">
+  <ion-toolbar class="backGroundColor2">
+    <ion-row >
+      <ion-col size="3">
+        <div  >
+          <ion-skeleton-text animated  *ngIf="flags.flagSkeleton == 0"></ion-skeleton-text>
+           <img class="thumball" src="{{userProfile.picture.large}}" *ngIf="flags.flagSkeleton == 1">
+      </div>
+      </ion-col>
+      <ion-col size="6">
+        <div class="containerTitle">
+					<ion-skeleton-text animated class="titleSkeleton" *ngIf="flags.flagSkeleton == 0"></ion-skeleton-text>
+          <p class="title titleName" *ngIf="flags.flagSkeleton == 1" >Bienvenido, {{userProfile.name}} </p>
+        </div>
+        
+	
+      </ion-col>
+    </ion-row>
+
+
+			<ion-buttons slot="end" *ngIf="flags.flagSkeleton == 1">
+				<ion-button class="buttonSearch">
+						<ion-icon src="assets/icon/search.svg"  ></ion-icon>
+				</ion-button>
+			</ion-buttons>
+				
+
+
+
+			
+
+		
+    <!--<ion-title>homeShoppingCart</ion-title>-->
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content  class="backGroundColor2 ">
+	
+	
+	<!--Title Offers-->
+	<h3 *ngIf="flags.flagSkeleton == 1" style="font-family: Raleway-Bold; font-size: 35ptpt; color: #4f4e4e">Ofertas del día</h3>
+	<ion-skeleton-text animated class="heightSkeleton" *ngIf="flags.flagSkeleton == 0"></ion-skeleton-text>
 
+	<!--offers-->
+	<ion-skeleton-text animated class="heightSliderSkeleton" *ngIf="flags.flagSkeleton == 0"></ion-skeleton-text>
+	<ion-slides   pager="false" [options]="slideOpt1" *ngIf="flags.flagSkeleton == 1">
+		<ion-slide class="slide1"  *ngFor="let data of allProductsoffers"   >
+		<ion-card class="card" > 
+			<div class="divProductOffers">
+				<p class="titleProductOffers">{{data.product_name}}</p>
+			</div>
+			
+			<div class="sizeContainerDiv" >
+				<div class="triangleRotate" >
+				<div class="triangle"></div>
+			
+			</div>
+			<img src="{{data.product_image}}" class="imageOffer">
+		</div>
+
+		<div>
+			<div style="float:left; width: 50%;">
+				<div class="divProductOffersPrice">
+					<p class="finalPriceTotal">$ {{data.priceDiscount}}</p>
+					<p class="finalPriceDiscount">$ {{data.product_price}}</p>
+				</div>
+			</div>
+			<div style="padding-top: 15px;">
+				<ionic-rating-component #rating
+        activeIcon = "star"
+        defaultIcon = "star-outline"
+        activeColor = "#ffd27d" 
+        defaultColor = "#ffd27d"
+        readonly="false"
+        rating="{{data.score}}"
+        fontSize = "17px"
+        (ratingChanged)="onRatingChange($event)">
+    </ionic-rating-component>
+			</div>
+		</div>
+		
+			
+		</ion-card>
+	
+	</ion-slide>
+	</ion-slides>
+
+
+
+	<!--Products List-->
+	<h3 *ngIf="flags.flagSkeleton == 1" style="font-family: Raleway-Bold; font-size: 35ptpt; color: #4f4e4e">Descubre</h3>
+	<ion-skeleton-text animated class="heightSkeleton" *ngIf="flags.flagSkeleton == 0"></ion-skeleton-text>
+	<div>
+	<ion-grid style="--ion-grid-padding:5px;">
+		 <ion-row >
+			 <ion-col size="6" class="ion-no-padding" *ngFor="let data of allProducts">
+				 <ion-card class="cardProducts">
+					 <div>
+						 <div style="float:left; width: 85%; margin-top: -25px;">
+							<div class="divProduct">
+								<p class="titleBrand">{{data.brand}}</p>
+								<p class="titleProduct">{{data.product_name}}</p>
+							</div>
+						 </div>
+
+						 <div>
+							 <p>;D</p>
+						 </div>
+					 </div>
+					
+				 </ion-card>
+			 </ion-col>
+			 <!--<ion-col size="6" class="ion-no-padding">
+				<ion-card class="cardProducts">Text2</ion-card>
+			 </ion-col>
+
+			 <ion-col size="6" class="ion-no-padding">
+				<ion-card class="cardProducts">text</ion-card>
+			</ion-col>
+			<ion-col size="6" class="ion-no-padding">
+			 <ion-card class="cardProducts">Text2</ion-card>
+			</ion-col>-->
+		 </ion-row>
+	 </ion-grid>
+	</div> 
 </ion-content>
