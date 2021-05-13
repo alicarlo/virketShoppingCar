@@ -28,79 +28,6 @@ export class HomeShoppingCartPage implements OnInit {
 	public userProfile: IUser 		= User;
 	public allProducts: IProduct[] 	=  [Products];
 	public allCart: 		any = Cart;
-	/*[
-		{
-			brand: "Jabra",
-			colors: {name: "Naranja", hex: "#ffa500"},
-			description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-			discount: "350.0",
-			id: 6,
-			is_favorite: false,
-			product_image: "https://purepng.com/public/uploads/large/headphones-1ax.png",
-			product_name: "Jabra Star light",
-			product_price: "1500.0",
-			reviews: "10",
-			score: 3,
-			sku: "00750105772039",
-		},
-		{
-			brand: "Jabra",
-			colors: {name: "Naranja", hex: "#ffa500"},
-			description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-			discount: "350.0",
-			id: 6,
-			is_favorite: false,
-			product_image: "https://purepng.com/public/uploads/large/headphones-1ax.png",
-			product_name: "Jabra Star light",
-			product_price: "1500.0",
-			reviews: "10",
-			score: 3,
-			sku: "00750105772039",
-		},
-		{
-			brand: "Jabra",
-			colors: {name: "Naranja", hex: "#ffa500"},
-			description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-			discount: "350.0",
-			id: 6,
-			is_favorite: false,
-			product_image: "https://purepng.com/public/uploads/large/headphones-1ax.png",
-			product_name: "Jabra Star light",
-			product_price: "1500.0",
-			reviews: "10",
-			score: 3,
-			sku: "00750105772039",
-		},
-		{
-			brand: "Jabra",
-			colors: {name: "Naranja", hex: "#ffa500"},
-			description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-			discount: "350.0",
-			id: 6,
-			is_favorite: false,
-			product_image: "https://purepng.com/public/uploads/large/headphones-1ax.png",
-			product_name: "Jabra Star light",
-			product_price: "1500.0",
-			reviews: "10",
-			score: 3,
-			sku: "00750105772039",
-		}
-		,{
-			brand: "Jabra",
-			colors: {name: "Naranja", hex: "#ffa500"},
-			description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-			discount: "350.0",
-			id: 6,
-			is_favorite: false,
-			product_image: "https://purepng.com/public/uploads/large/headphones-1ax.png",
-			product_name: "Jabra Star light",
-			product_price: "1500.0",
-			reviews: "10",
-			score: 3,
-			sku: "00750105772039",
-		}
-	]*/
-	//Products;
 	public allProductsoffers: Array<object> = [];
 	public flags: 			any = {flagSkeleton: 0} 
 	public slideOpt1 = {
@@ -116,8 +43,6 @@ export class HomeShoppingCartPage implements OnInit {
   ngOnInit() {
 		this.getCartAll();
 		this.callAllProducts();
-		//TEST
-		//this.validOffers()
   }
 
 	//SE LLAMA EL SERVICIO DEL USUARIO
@@ -275,7 +200,6 @@ export class HomeShoppingCartPage implements OnInit {
     });
     toast.present();
   }
-
 
 
 }
