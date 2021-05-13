@@ -4,7 +4,7 @@
       <ion-col size="3">
         <div  >
           <ion-skeleton-text animated  *ngIf="flags.flagSkeleton == 0" class="thumball"></ion-skeleton-text>
-           <img class="thumball" src="{{userProfile.picture.large}}" *ngIf="flags.flagSkeleton == 1">
+          <img class="thumball" src="{{userProfile.picture.large}}" *ngIf="flags.flagSkeleton == 1">
       </div>
       </ion-col>
       <ion-col size="6">
@@ -12,31 +12,18 @@
 					<ion-skeleton-text animated class="titleSkeleton" *ngIf="flags.flagSkeleton == 0"></ion-skeleton-text>
           <p class="title titleName" *ngIf="flags.flagSkeleton == 1" >Bienvenido, {{userProfile.name}} </p>
         </div>
-        
-	
       </ion-col>
     </ion-row>
-
-
-			<ion-buttons slot="end" *ngIf="flags.flagSkeleton == 1" (click)="filerProduct()">
-				<ion-button class="buttonSearch">
-						<ion-icon src="assets/icon/search.svg"  ></ion-icon>
-				</ion-button>
-			</ion-buttons>
-				
-
-
-
-			
-
-		
-    <!--<ion-title>homeShoppingCart</ion-title>-->
+		<ion-buttons slot="end" *ngIf="flags.flagSkeleton == 1" (click)="filerProduct()">
+			<ion-button class="buttonSearch">
+				<ion-icon src="assets/icon/search.svg"  ></ion-icon>
+			</ion-button>
+		</ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content  class="backGroundColor2 ">
 	
-
 	<!--Title Offers-->
 	<h3 *ngIf="flags.flagSkeleton == 1" class="fontRalewayBold colorText titleSize1">Ofertas del día</h3>
 	<ion-skeleton-text animated class="heightSkeleton" *ngIf="flags.flagSkeleton == 0"></ion-skeleton-text>
@@ -86,7 +73,6 @@
 	</ion-slides>
 
 
-
 	<!--Products List-->
 	<h3 *ngIf="flags.flagSkeleton == 1"  class="fontRalewayBold colorText titleSize1">Descubre</h3>
 	<ion-skeleton-text animated class="heightSkeleton" *ngIf="flags.flagSkeleton == 0"></ion-skeleton-text>
@@ -96,9 +82,9 @@
 	<ion-grid style="--ion-grid-padding:5px;" *ngIf="flags.flagSkeleton == 1" >
 		 <ion-row >
 			 <ion-col size="6" class="ion-no-padding" *ngFor="let data of allProducts">
-				 <ion-card class="cardProducts">
-					 <div>
-						 <div style="float:left; width: 75%; margin-top: -15px;height: 25%;">
+				<ion-card class="cardProducts">
+					<div>
+						<div style="float:left; width: 75%; margin-top: -15px;height: 25%;">
 							<div class="divProduct">
 								<p class="titleBrand">{{data.brand}}</p>
 								<p class="titleProduct">{{data.product_name}}</p>
@@ -106,8 +92,7 @@
 						 </div>
 
 						 <div>
-							 
-							<ion-buttons slot="end" *ngIf="flags.flagSkeleton == 1">
+							<ion-buttons slot="end" *ngIf="flags.flagSkeleton == 1" (click)="addFavorite(data.is_favorite, data.id)">
 								<ion-button class="buttonFavorite" [ngClass]="{buttonColorGrayFavorite: data.is_favorite === false, buttonColorRedFavorite: data.is_favorite === true}">
 										<ion-icon src="assets/icon/favorite.svg"  ></ion-icon>
 								</ion-button>
@@ -134,77 +119,48 @@
 								defaultColor = "#ffd27d"
 								readonly="false"
 								rating="{{data.score}}"
-								fontSize = "15px"
+								fontSize = "12px"
 								(ratingChanged)="onRatingChange($event)">
 						</ionic-rating-component>
 							</div>
 						</div>
 						<div style="float: right;">
-
-							<ion-buttons style="position: absolute; bottom: 0; right: -2px;">
+							<ion-buttons style="position: absolute; bottom: 0; right: -2px;" (click)="addProduct(data)">
 								<ion-button class="buttonAdd" >
 										<ion-icon src="assets/icon/add.svg"  ></ion-icon>
 								</ion-button>
 							</ion-buttons>
 						</div>
 					</div>
-					
-	
-					
 				 </ion-card>
 			 </ion-col>
-			 <!--<ion-col size="6" class="ion-no-padding">
-				<ion-card class="cardProducts">Text2</ion-card>
-			 </ion-col>
-
-			 <ion-col size="6" class="ion-no-padding">
-				<ion-card class="cardProducts">text</ion-card>
-			</ion-col>
-			<ion-col size="6" class="ion-no-padding">
-			 <ion-card class="cardProducts">Text2</ion-card>
-			</ion-col>-->
 		 </ion-row>
 	 </ion-grid>
 	</div> 
-
-
 
 	<ion-fab vertical="bottom" horizontal="center" slot="fixed" style="bottom: -30px;" (click)="shoppingCart()" *ngIf="flags.flagSkeleton == 1">
     <ion-fab-button color="orange" style="height: 70px; width: 70px;">
 			<ion-icon src="assets/icon/shopping_cart.svg"  ></ion-icon>
     </ion-fab-button>
   </ion-fab>
-
 </ion-content>
 
-
+<!--Footer-->
 <ion-skeleton-text animated class="heightSkeleton" *ngIf="flags.flagSkeleton == 0"></ion-skeleton-text>
 <ion-footer style="background: #f3f3f3;" class="ion-no-border" *ngIf="flags.flagSkeleton == 1">
 	<ion-toolbar style="border-top-left-radius: 30px; border-top-right-radius: 30px;border: 1px solid #f3f3f3; ">
 		<ion-grid >
 			<ion-row >
 				<ion-col size="4">
-				
-						<ion-buttons  >
-							<ion-button class="buttonExplore"  >
-									<ion-icon src="assets/icon/explore.svg"  ></ion-icon>
-							</ion-button>
-						</ion-buttons>
-		
-					
+					<ion-buttons  >
+						<ion-button class="buttonExplore"  >
+							<ion-icon src="assets/icon/explore.svg"  ></ion-icon>
+						</ion-button>
+					</ion-buttons>
 				</ion-col>
-				<ion-col size="4">
 
-					<!--<div class="centerButton">
-						<ion-buttons style="--border-radius: 50px;" >
-							<ion-button class="buttonCart"  >
-									<ion-icon src="assets/icon/shopping_cart.svg"  ></ion-icon>
-							</ion-button>
-						</ion-buttons>
-					</div>
-					-->
-					
-				</ion-col>
+				<ion-col size="4"></ion-col>
+
 				<ion-col size="4">
 					<ion-buttons  >
 						<ion-button class="buttonExplore"  >
@@ -214,7 +170,6 @@
 				</ion-col>
 			</ion-row>
 		</ion-grid>
-		
 		<ion-icon src="assets/icon/shopping_cart.svg"  ></ion-icon>
 	</ion-toolbar>
 </ion-footer>

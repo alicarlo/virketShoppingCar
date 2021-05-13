@@ -1,4 +1,4 @@
-export let Products = [
+export let Products = 
 	{
 		id:							0,
 		sku:						"",
@@ -17,4 +17,4 @@ export let Products = [
 			},
 		reviews: 				""	
 	}
-]
+

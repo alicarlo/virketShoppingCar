@@ -10,21 +10,28 @@
 }
 
 .buttonExplore{
-	//background: #f47f1f;
 	font-size: 25px;
 	border-radius: 50px;
-	//height: 40px;
-	//width: 40px;
-
-
 }
 
 .upItem{
-	margin-top: -20px;
+	margin-top: -30px;
 }
 
 .center{
 	display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+.topText{
+	margin-top: 35%;
+}
+
+.topPrices{
+	margin-top: -30px;
+}
+
+.padCol{
+	--ion-grid-column-padding: 0px;
 }

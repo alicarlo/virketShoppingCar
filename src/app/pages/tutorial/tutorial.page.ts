@@ -11,6 +11,7 @@ export class TutorialPage implements OnInit {
   constructor(private _StorageService: StorageService, private _NavController:  NavController) { }
 
   ngOnInit() {
+
   }
 	
 	public firstTutorial(): void {

@@ -35,7 +35,7 @@
 				defaultColor = "#ffd27d"
 				readonly="false"
 				rating="{{allProducts.score}}"
-				fontSize = "20px"
+				fontSize = "15px"
 				(ratingChanged)="onRatingChange($event)">
 				</ionic-rating-component>
 			</div>
@@ -92,17 +92,17 @@
 		<ion-grid >
 			<ion-row >
 				<ion-col size="3">
-					<ion-buttons >
-						<ion-button class="buttonFavorite"  >
-							<ion-icon src="assets/icon/favoriteSelect.svg"  ></ion-icon>
+					<ion-buttons (click)="addFavorite(allProducts.is_favorite, allProducts.id)">
+						<ion-button class="buttonFavorite"   [ngClass]="{buttonColorGrayFavorite: allProducts.is_favorite === false, buttonColorRedFavorite: allProducts.is_favorite === true}">
+							<ion-icon src="assets/icon/favorite.svg"  ></ion-icon><!--favoriteSelect.svg-->
 						</ion-button>
 					</ion-buttons>
 				</ion-col>
 
 				<ion-col size="9">
-					<ion-button color="orange" expand="full" shape="round" (click)="firstTutorial()" style="    height: 50px;">
+					<ion-button color="orange" expand="full" shape="round" (click)="addProduct(allProducts)" style="    height: 50px;">
 						<ion-icon src="assets/icon/add_shopping_cart2.svg"  ></ion-icon>
-						Agregar al carrito
+							Agregar al carrito
 					</ion-button>
 				</ion-col>
 			</ion-row>

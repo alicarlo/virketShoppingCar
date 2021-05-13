@@ -44,7 +44,7 @@ ion-button{
 
 .titlePrice{
 	font-family: Poppins-Bold; 
-	font-size: 22pt; color: #f47f1f;
+	font-size: 18pt; color: #f47f1f;//22
 	margin-top: -5px;
 	margin-left: 10%;
 	width: max-content;
@@ -59,6 +59,14 @@ ion-button{
 	height: 60px;
 	width: 60px;
 	font-size: 20px;
+}
+
+.buttonColorRedFavorite{
+	background: #ff1f2c;
+}
+
+.buttonColorGrayFavorite{
+	background: #bdbcbc;
 }
 
 .triangleRotate{

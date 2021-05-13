@@ -9,9 +9,11 @@ import { Products } from '../../../models/products/products';
 })
 export class FilterProductPage implements OnInit {
 	@ViewChild(IonSlides, {static: false}) slides: IonSlides;
-	public allProducts: IProduct [] 	= Products;
-	public productsFilter: any  = [];
-	public brands: any = [];
+	public allProducts: 		any 	= [Products];
+	public productsFilter: 	any  	= [];
+	public brands: 					any 	= [];
+	public favoriteData: 		any 	= [];
+	public favoriteStruct:	any		= {dataFavorite: false, dataId: 0, flag: false}
 	public slideOpt1 = {
     direction: 'horizontal',
     slidesPerView: 1
@@ -27,36 +29,62 @@ export class FilterProductPage implements OnInit {
   }
 
 	public back(): void {
-		this._ModalController.dismiss(false);
+		if(this.favoriteData.length != 0){
+			this.favoriteStruct.flag = true;
+			this._ModalController.dismiss(this.favoriteData);
+		}else{
+			this.favoriteStruct.flag = true;
+			this.favoriteData.push(this.favoriteStruct);
+			this._ModalController.dismiss(this.favoriteData);
+		}
 	}
 
 	public openCart(): void {
-		this._ModalController.dismiss(true);
+		if(this.favoriteData.length != 0){
+			this.favoriteStruct.flag=false;
+			this._ModalController.dismiss(this.favoriteData);
+		}else{
+			this.favoriteStruct.flag=false;
+			this.favoriteData.push(this.favoriteStruct);
+			this._ModalController.dismiss(this.favoriteData);
+		}
+	
 	}
 
 	public openDetail(data): void {
-		this._ModalController.dismiss(data);
+		this.favoriteStruct.flag=null;
+		this.favoriteStruct['dataDetail']=data
+		this.favoriteData.push(this.favoriteStruct);
+		this._ModalController.dismiss(this.favoriteData);
 	}
 
 	public filterBrands(brandAux: string): void {
 		if(brandAux != 'Todos'){
-			//let data =	this.allProducts.find(t=>t.brand === brandAux);
 			let dataAux = [];
 			this.allProducts.forEach(element => {
 				if(element.brand == brandAux){
 					dataAux.push(element);
 				}
 			});
-			
 			if(dataAux.length != 0){
 				this.productsFilter = dataAux;
 			}
 		}else{
 			this.productsFilter = this.allProducts;
 		}
-		
 	}
 
-
+	public addFavorite(dataFavorite: boolean, dataId: number): void {
+		let index = this.allProducts.findIndex(dat => dat.id === dataId);
+		if(dataFavorite){
+			this.allProducts[index].is_favorite = false;
+		}else{
+			this.allProducts[index].is_favorite = true;
+		}
+		this.favoriteStruct.dataFavorite = 	dataFavorite;
+		this.favoriteData.dataId = 					dataId;
+		this.favoriteData.flag = 						true
+		this.favoriteData.push({dataFavorite: dataFavorite, dataId: dataId, flag: true});
+	}
 
 }

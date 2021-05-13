@@ -9,18 +9,11 @@ ion-button{
 	--border-radius: 50px !important;
 }
 
-
-
 .thumball{
-  //z-index: 3!important;
-  //position: absolute;
 	margin-top: 3px;
   height: 55px;
   width: 55px;
-  //background: red;
-  //left: 20px;
 	margin-left: 10px;
-  //top: 8%;
   border-radius: 100px;
 }
 
@@ -84,7 +77,6 @@ ion-button{
 	height: 200px;
 }
 
-
 .slide1{
   width: 275px !important;
 }
@@ -98,8 +90,6 @@ ion-button{
 
 .cardProducts{
 	height: 200px;
-	//width: 100%;
-	//width: 275px;
 	border-radius: 15px;
   background: #ffffff;
 	margin: 	3px;
@@ -109,7 +99,6 @@ ion-button{
 .ion-padding{
 	padding: 0px
 }
-
 
 
 .divProductOffers{
@@ -149,21 +138,15 @@ ion-button{
 }
 
 .finalPriceProducts{
-	font-family: Poppins-Bold; font-size: 14pt; color: #4f4e4e;
-	//margin-top: -15px;
-	//margin-left: 5px;
+	font-family: Poppins-Bold; font-size: 12pt; color: #4f4e4e;
 	position: relative;
-  //padding: 0;
-  //margin: 0;
 	margin: -10px;
   margin-left: 5px;
 }
 
 .finalPriceTotal{
 	font-family: Poppins-Medium; font-size: 12pt; color: #ffd056;
-	//margin-top: -15px;
 	text-decoration: line-through;
-	//margin-left: -5px;
 }
 
 .sizeContainerDiv{
@@ -172,37 +155,27 @@ ion-button{
 
 .imageOffer{
 	height: 65px;
-    z-index: 9999;
-    position: relative;
-    margin-top: -25px;
-    transform: rotate(20deg);
+  z-index: 9999;
+  position: relative;
+  margin-top: -25px;
+  transform: rotate(20deg);
 }
 
 .imageProduct{
 	height: 65px;
   z-index: 9999;
   position: relative;
-  //margin-top: -25px;
   transform: rotate(20deg);
-	//margin-left: 45%;
-	//margin-left: 75px;
 	display: block;
-    margin-left: auto;
-    margin-right: auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .buttonAdd{
 	height: 45px;
-    width: 60px;
-    background: #f47f1f;
-    /* position: absolute; */
-    /* bottom: 0; */
-    /* right: 0; */
-    /* left: 75%; */
-    /*position: absolute;
-    bottom: 0;
-    right: 0;*/
-		border-top-left-radius: 25px;
+  width: 60px;
+  background: #f47f1f;
+	border-top-left-radius: 25px;
 }
 
 .buttonCart{
@@ -211,19 +184,14 @@ ion-button{
 	border-radius: 50px;
 	height: 60px;
 	width: 60px;
-
 }
 
 .buttonExplore{
-	//background: #f47f1f;
 	font-size: 25px;
 	border-radius: 50px;
-	//height: 40px;
-	//width: 40px;
 	display: block;
-    margin-left: auto;
-    margin-right: auto;
-
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .centerButton{
@@ -232,15 +200,12 @@ ion-button{
   margin-right: auto;
 }
 
-
 .divProductOffersPrice{
-	//width: 275px;
 	margin-top: -25px;
-	margin-left: -25px//-32%;
+	margin-left: -25px;
 }
 
 .divProductPrice{
-	//margin-top: -35px;
 	margin-left: -5px;
 	margin-top: 25px;
 }
@@ -251,9 +216,8 @@ ion-button{
 }
 
 .triangleRotateProduct{
-	margin-left: 30%;//37%; 
+	margin-left: 30%;
 	transform: rotate(-20deg);
-	//margin-top: 50px;
 	position: absolute;
 
 }
@@ -263,7 +227,7 @@ ion-button{
 	background-color: #f8ba88;
 	text-align: left;
 	opacity: 0.6;
-	//transform: rotate(-20deg);
+	
 }
 .triangle:before,
 .triangle:after {

@@ -28,7 +28,7 @@
 						</div>
 
 						<div>
-							<ion-buttons slot="end" >
+							<ion-buttons slot="end" (click)="addFavorite(data.is_favorite, data.id)">
 								<ion-button class="buttonFavorite" [ngClass]="{buttonColorGrayFavorite: data.is_favorite === false, buttonColorRedFavorite: data.is_favorite === true}">
 										<ion-icon src="assets/icon/favorite.svg"  ></ion-icon>
 								</ion-button>

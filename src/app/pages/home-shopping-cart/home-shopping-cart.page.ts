@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 //USER
 import { UserService } from '../../../providers/user/user.service';
 import { IUser } from '../../../interfaces/user/iUser';
@@ -11,7 +12,7 @@ import { Products } from '../../../models/products/products';
 import { CartService } from '../../../providers/cart/cart.service'
 import { Cart } from '../../../models/cart/cart';
 //
-import { ModalController } from '@ionic/angular';
+import { ModalController, ToastController } from '@ionic/angular';
 //Pages
 import { DetailProductPage } from '../detail-product/detail-product.page';
 import { ShoppingCartPage } from '../shopping-cart/shopping-cart.page';
@@ -25,7 +26,7 @@ import { FilterProductPage } from '../filter-product/filter-product.page';
 export class HomeShoppingCartPage implements OnInit {
 
 	public userProfile: IUser 		= User;
-	public allProducts: IProduct[] 	=  Products;
+	public allProducts: IProduct[] 	=  [Products];
 	public allCart: 		any = Cart;
 	/*[
 		{
@@ -109,7 +110,8 @@ export class HomeShoppingCartPage implements OnInit {
 	public rating:                any;
   public raitingView:           boolean = false;
   public raitingFinal:          any =0;
-  constructor(private _UserService: UserService, private _ProductsService: ProductsService, private _ModalController: ModalController, private _CartService: CartService) { }
+  constructor(private _UserService: UserService, private _ProductsService: ProductsService, private _ModalController: ModalController, 
+		private _CartService: CartService, private _ToastController: ToastController) { }
 
   ngOnInit() {
 		this.getCartAll();
@@ -161,7 +163,7 @@ export class HomeShoppingCartPage implements OnInit {
 	}
 
 	//SE VALIDAN QUE PRODUCTOS ESTAN EN OFERTA
-	public validOffers(){
+	public validOffers(): Promise<any>{
 		return new Promise ((resolve)=>{
 			this.allProducts.forEach((element)=>{
 				if(parseInt(element.discount) > 0){
@@ -177,13 +179,26 @@ export class HomeShoppingCartPage implements OnInit {
 	}
 
 	//MODAL DE DETALLE DEL PRODUCTO
-	async detailProduct(dataProduct: object){
+	async detailProduct(dataProduct: object) {
     let modal = await this._ModalController.create({
       component:  DetailProductPage,
       componentProps: { value: dataProduct },
     });
     modal.onDidDismiss().then((result)=>{
-
+			if(result.data[0].flag == true  ){
+				console.log(result.data[0].dataId )
+				if(result.data[0].dataId>0){
+					this.addFavorite(result.data.dataFavorite, result.data.id);;
+				}
+			}else
+			if(result.data[0].flag == false){
+				if(result.data[0].dataId>0){
+					this.addFavorite(result.data.dataFavorite, result.data.id);
+					this.shoppingCart();
+				}else{
+					this.shoppingCart();
+				}
+			}
     })
     return await modal.present();
   }
@@ -205,18 +220,29 @@ export class HomeShoppingCartPage implements OnInit {
       componentProps: { value: this.allProducts },
     });
     modal.onDidDismiss().then((result)=>{
-			if(result.data == true){
-				this.shoppingCart();
+			if(result.data[0].flag == true  ){
+				console.log(result.data[0].dataId )
+				if(result.data[0].dataId>0){
+					this.addFavorite(result.data.dataFavorite, result.data.id);
+				}
 			}else
-			if(result.data != true && result.data != false ){
-				this.detailProduct(result.data);
+			if(result.data[0].flag == false){
+				if(result.data[0].dataId>0){
+					this.addFavorite(result.data.dataFavorite, result.data.id);
+					this.shoppingCart();
+				}else{
+					this.shoppingCart();
+				}
+			}else
+			if(result.data[0].flag == null){
+				this.detailProduct(result.data[0].dataDetail);
 			}
     })
     return await modal.present();
   }
 
 	//SE LLAMA EL SERVICIO DE LAS COMPRAS PARA ALMACENAR LOS DATOS Y UTILIZARLOS EN CUALQUIER COMPONENTE
-	public getCartAll(): void{
+	public getCartAll(): void {
 		this._CartService.getCartClient().then((dataResponse)=>{
 			let dataAux = JSON.parse(dataResponse.data)
 			if(dataAux.ok == true){
@@ -225,5 +251,31 @@ export class HomeShoppingCartPage implements OnInit {
 			}
 		})
 	}
+
+	public addFavorite(dataFavorite: boolean, dataId: number): void {
+		let index = this.allProducts.findIndex(dat => dat.id === dataId);
+		if(dataFavorite){
+			this.allProducts[index].is_favorite = false;
+		}else{
+			this.allProducts[index].is_favorite = true;
+		}
+	}
+
+	public addProduct(data): void {
+		data['color'] = data.colors;
+		this.allCart.products.push(data)
+		this._CartService.setCart(this.allCart);
+		this.presentToast();
+	}
+
+	async presentToast() {
+    const toast = await this._ToastController.create({
+      message: 'Producto agregado correctamente',
+      duration: 2000
+    });
+    toast.present();
+  }
+
+
 
 }
