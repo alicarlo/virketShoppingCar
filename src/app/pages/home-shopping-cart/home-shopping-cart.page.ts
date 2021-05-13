@@ -7,8 +7,15 @@ import { User } from '../../../models/user/user';
 import { ProductsService } from '../../../providers/products/products.service';
 import { IProduct } from '../../../interfaces/product/iProduct';
 import { Products } from '../../../models/products/products';
-
-
+//Cart
+import { CartService } from '../../../providers/cart/cart.service'
+import { Cart } from '../../../models/cart/cart';
+//
+import { ModalController } from '@ionic/angular';
+//Pages
+import { DetailProductPage } from '../detail-product/detail-product.page';
+import { ShoppingCartPage } from '../shopping-cart/shopping-cart.page';
+import { FilterProductPage } from '../filter-product/filter-product.page';
 
 @Component({
   selector: 'app-home-shopping-cart',
@@ -18,7 +25,81 @@ import { Products } from '../../../models/products/products';
 export class HomeShoppingCartPage implements OnInit {
 
 	public userProfile: IUser 		= User;
-	public allProducts: IProduct[] 	= Products;
+	public allProducts: IProduct[] 	=  Products;
+	public allCart: 		any = Cart;
+	/*[
+		{
+			brand: "Jabra",
+			colors: {name: "Naranja", hex: "#ffa500"},
+			description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+			discount: "350.0",
+			id: 6,
+			is_favorite: false,
+			product_image: "https://purepng.com/public/uploads/large/headphones-1ax.png",
+			product_name: "Jabra Star light",
+			product_price: "1500.0",
+			reviews: "10",
+			score: 3,
+			sku: "00750105772039",
+		},
+		{
+			brand: "Jabra",
+			colors: {name: "Naranja", hex: "#ffa500"},
+			description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+			discount: "350.0",
+			id: 6,
+			is_favorite: false,
+			product_image: "https://purepng.com/public/uploads/large/headphones-1ax.png",
+			product_name: "Jabra Star light",
+			product_price: "1500.0",
+			reviews: "10",
+			score: 3,
+			sku: "00750105772039",
+		},
+		{
+			brand: "Jabra",
+			colors: {name: "Naranja", hex: "#ffa500"},
+			description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+			discount: "350.0",
+			id: 6,
+			is_favorite: false,
+			product_image: "https://purepng.com/public/uploads/large/headphones-1ax.png",
+			product_name: "Jabra Star light",
+			product_price: "1500.0",
+			reviews: "10",
+			score: 3,
+			sku: "00750105772039",
+		},
+		{
+			brand: "Jabra",
+			colors: {name: "Naranja", hex: "#ffa500"},
+			description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+			discount: "350.0",
+			id: 6,
+			is_favorite: false,
+			product_image: "https://purepng.com/public/uploads/large/headphones-1ax.png",
+			product_name: "Jabra Star light",
+			product_price: "1500.0",
+			reviews: "10",
+			score: 3,
+			sku: "00750105772039",
+		}
+		,{
+			brand: "Jabra",
+			colors: {name: "Naranja", hex: "#ffa500"},
+			description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+			discount: "350.0",
+			id: 6,
+			is_favorite: false,
+			product_image: "https://purepng.com/public/uploads/large/headphones-1ax.png",
+			product_name: "Jabra Star light",
+			product_price: "1500.0",
+			reviews: "10",
+			score: 3,
+			sku: "00750105772039",
+		}
+	]*/
+	//Products;
 	public allProductsoffers: Array<object> = [];
 	public flags: 			any = {flagSkeleton: 0} 
 	public slideOpt1 = {
@@ -28,16 +109,16 @@ export class HomeShoppingCartPage implements OnInit {
 	public rating:                any;
   public raitingView:           boolean = false;
   public raitingFinal:          any =0;
-  constructor(private _UserService: UserService, private _ProductsService: ProductsService) { }
+  constructor(private _UserService: UserService, private _ProductsService: ProductsService, private _ModalController: ModalController, private _CartService: CartService) { }
 
   ngOnInit() {
-		console.log(':D');
-		console.log(this.userProfile)
-		console.log(this.userProfile.fullName)
-		//this.callUserProfile();
+		this.getCartAll();
 		this.callAllProducts();
+		//TEST
+		//this.validOffers()
   }
 
+	//SE LLAMA EL SERVICIO DEL USUARIO
 	public callUserProfile(): void {
 		this._UserService.getUserProfile().then((dataResponse)=>{
 			let dataAux = JSON.parse(dataResponse.data)
@@ -45,8 +126,6 @@ export class HomeShoppingCartPage implements OnInit {
 				this.userProfile=dataAux.data;
 				console.log(this.userProfile)
 				this.validOffers().then((dataResponse)=>{
-					console.log('offers')
-					console.log(this.allProducts)
 					this.splitFullNameCreate(this.userProfile.fullName).then((flagRespond)=>{
 						if(flagRespond){
 							this.flags.flagSkeleton=1;
@@ -59,13 +138,12 @@ export class HomeShoppingCartPage implements OnInit {
 		})
 	}
 
+	//SE LLAMA EL SERVICIO DE LOS PRODUCTOS
 	public callAllProducts(): void {
 		this._ProductsService.getAllProducts().then((dataResponse)=>{
 			let dataAux = JSON.parse(dataResponse.data)
 			if(dataAux.ok == true){
 				this.allProducts=dataAux.data;
-				console.log(this.allProducts)
-				//this.allProducts
 				this.callUserProfile();
 			}
 		}).catch((error)=>{
@@ -73,6 +151,7 @@ export class HomeShoppingCartPage implements OnInit {
 		})
 	}
 
+	//SE SEPARA EL FULLNAME A NAME PARA LA PRESENTACION DEL USUARIO
 	public splitFullNameCreate(fullName: string): Promise<any>{
 		return new Promise ((resolve, reject)=>{
 			let splitFullName = fullName.split(" ");
@@ -81,22 +160,70 @@ export class HomeShoppingCartPage implements OnInit {
 		})
 	}
 
+	//SE VALIDAN QUE PRODUCTOS ESTAN EN OFERTA
 	public validOffers(){
-		//allProducts['offers'] = a => a.foo  //a = 
-		//this.allProducts['offers'] = 
-		//this.allProducts['offers'];
 		return new Promise ((resolve)=>{
 			this.allProducts.forEach((element)=>{
 				if(parseInt(element.discount) > 0){
 					element['priceDiscount'] 		= parseFloat(element.product_price) + parseFloat(element.discount);
+					element['priceFinal'] 		= parseFloat(element.product_price) + parseFloat(element.discount);
 					element['product_priceInt']	= parseFloat(element.product_price);
 					this.allProductsoffers.push(element)
 				}
+				element['priceFinal'] 		= element.product_price;
 			})
 			resolve(true);
 		})
-	
+	}
 
+	//MODAL DE DETALLE DEL PRODUCTO
+	async detailProduct(dataProduct: object){
+    let modal = await this._ModalController.create({
+      component:  DetailProductPage,
+      componentProps: { value: dataProduct },
+    });
+    modal.onDidDismiss().then((result)=>{
+
+    })
+    return await modal.present();
+  }
+
+	//MODAL DE LAS COMPRAS
+	async shoppingCart(){
+    let modal = await this._ModalController.create({
+      component:  	ShoppingCartPage,
+    });
+    modal.onDidDismiss().then((result)=>{
+    })
+    return await modal.present();
+  }
+
+	//MODAL DONDE SE FILTRA POR MARCA LOS PRODUCTOS
+	async filerProduct(){
+    let modal = await this._ModalController.create({
+      component:  	FilterProductPage,
+      componentProps: { value: this.allProducts },
+    });
+    modal.onDidDismiss().then((result)=>{
+			if(result.data == true){
+				this.shoppingCart();
+			}else
+			if(result.data != true && result.data != false ){
+				this.detailProduct(result.data);
+			}
+    })
+    return await modal.present();
+  }
+
+	//SE LLAMA EL SERVICIO DE LAS COMPRAS PARA ALMACENAR LOS DATOS Y UTILIZARLOS EN CUALQUIER COMPONENTE
+	public getCartAll(): void{
+		this._CartService.getCartClient().then((dataResponse)=>{
+			let dataAux = JSON.parse(dataResponse.data)
+			if(dataAux.ok == true){
+				this._CartService.setCart(dataAux.data);
+				this.allCart = this._CartService.getCart();
+			}
+		})
 	}
 
 }

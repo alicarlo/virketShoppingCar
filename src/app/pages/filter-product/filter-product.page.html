@@ -1,0 +1,97 @@
+<!--Header-->
+<ion-header class="ion-no-border">
+  <ion-toolbar class="backGroundColor2">
+		<p class="fontRalewayBold colorText titleSize1 titleHeader">Selecciona la marca</p>
+  </ion-toolbar>
+</ion-header>
+
+<!--Productos-->
+<ion-content  class="backGroundColor2 ">
+	<ion-slides   pager="false" [options]="slideOpt1" >
+		<ion-slide class="slide1"  *ngFor="let data of brands"   >
+			<ion-chip (click)="filterBrands(data.brand)">
+				<ion-label>{{data.brand}}</ion-label>
+			</ion-chip>
+		</ion-slide>
+	</ion-slides>
+
+	<ion-grid style="--ion-grid-padding:5px;"  >
+		<ion-row >
+			<ion-col size="6" class="ion-no-padding" *ngFor="let data of productsFilter">
+				<ion-card class="cardProducts">
+					<div>
+						<div style="float:left; width: 75%; margin-top: -15px;height: 25%;">
+							<div class="divProduct">
+								<p class="titleBrand">{{data.brand}}</p>
+								<p class="titleProduct">{{data.product_name}}</p>
+							</div>
+						</div>
+
+						<div>
+							<ion-buttons slot="end" >
+								<ion-button class="buttonFavorite" [ngClass]="{buttonColorGrayFavorite: data.is_favorite === false, buttonColorRedFavorite: data.is_favorite === true}">
+										<ion-icon src="assets/icon/favorite.svg"  ></ion-icon>
+								</ion-button>
+							</ion-buttons>
+						</div>
+					</div>
+
+					<div style="margin-top: 25px; margin-left: -10px; " (click)="openDetail(data)">
+						<div class="triangleRotateProduct" >
+							<div class="triangle"></div>
+						</div>
+						<img src="{{data.product_image}}" class="imageProduct" >
+					</div>
+				 
+					<div class="divProductPrice">
+						<p class="finalPriceProducts"><span>$ {{data.product_price}}</span></p>
+						<ionic-rating-component #rating
+							activeIcon = "star"
+							defaultIcon = "star-outline"
+							activeColor = "#ffd27d" 
+							defaultColor = "#ffd27d"
+							readonly="false"
+							rating="{{data.score}}"
+							fontSize = "15px"
+							(ratingChanged)="onRatingChange($event)">
+						</ionic-rating-component>
+					</div>
+				</ion-card>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+
+	<ion-fab vertical="bottom" horizontal="center" slot="fixed" style="bottom: -30px;" (click)="openCart()" >
+    <ion-fab-button color="orange" style="height: 70px; width: 70px;">
+			<ion-icon src="assets/icon/shopping_cart.svg"  ></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
+
+<!--Footer-->
+<ion-footer style="background: #f3f3f3;" class="ion-no-border" >
+	<ion-toolbar style="border-top-left-radius: 30px; border-top-right-radius: 30px;border: 1px solid #f3f3f3; ">
+		<ion-grid >
+			<ion-row >
+				<ion-col size="4">
+						<ion-buttons  (click)="back()">
+							<ion-button class="buttonExplore"  >
+									<ion-icon src="assets/icon/explore2.svg"  ></ion-icon>
+							</ion-button>
+						</ion-buttons>
+				</ion-col>
+				<ion-col size="4"></ion-col>
+
+				<ion-col size="4">
+					<ion-buttons  >
+						<ion-button class="buttonExplore"  >
+								<ion-icon src="assets/icon/list2.svg"  ></ion-icon>
+						</ion-button>
+					</ion-buttons>
+				</ion-col>
+			</ion-row>
+		</ion-grid>
+		
+		<ion-icon src="assets/icon/shopping_cart.svg"  ></ion-icon>
+	</ion-toolbar>
+</ion-footer>

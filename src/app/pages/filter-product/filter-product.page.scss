@@ -1,0 +1,124 @@
+.buttonExplore{
+	font-size: 25px;
+	border-radius: 50px;
+	display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.titleHeader{
+	margin-left: 5%;
+}
+
+.slide1{
+  width: 95px !important;
+}
+
+.cardProducts{
+	height: 200px;
+	border-radius: 15px;
+  background: #ffffff;
+	margin: 	3px;
+	padding: 	10px;
+}
+
+.imageProduct{
+	height: 65px;
+  z-index: 9999;
+  position: relative;
+  transform: rotate(20deg);
+	display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.divProductOffers{
+	width: 275px;
+	margin-top: -5px;
+  margin-left: -20%;
+}
+
+.titleBrand{
+	font-family: Poppins-Medium; font-size: 8pt; color: #bdbcbc
+}
+
+.titleName{
+	font-family: Poppins-Medium; font-size: 12pt; color: #4f4e4e
+}
+
+.titleProduct{
+	font-family: Poppins-Medium; font-size: 9pt; color: #000000;
+	margin-top: -10px;
+	margin-left: -2px;
+}
+
+.buttonFavorite{
+	font-size: 20px;
+	border-radius: 20px;
+  height: 35px;
+  width: 35px;
+}
+
+.buttonColorRedFavorite{
+	background: #ff1f2c;
+}
+
+.buttonColorGrayFavorite{
+	background: #bdbcbc;
+}
+
+.divProductPrice{
+	margin-left: -5px;
+	margin-top: 25px;
+}
+
+.finalPriceProducts{
+	font-family: Poppins-Bold; font-size: 14pt; color: #4f4e4e;
+	position: relative;
+	margin: -10px;
+  margin-left: 5px;
+}
+
+.triangleRotate{
+	margin-left: 37%; 
+	transform: rotate(-20deg);
+}
+
+.triangleRotateProduct{
+	margin-left: 30%;
+	transform: rotate(-20deg);
+	position: absolute;
+}
+
+.triangle {
+	position: relative;
+	background-color: #f8ba88;
+	text-align: left;
+	opacity: 0.6;
+}
+
+.triangle:before,
+.triangle:after {
+	content: '';
+	position: absolute;
+	background-color: inherit;
+}
+
+.triangle,
+.triangle:before,
+.triangle:after {
+	width:  50px;
+	height: 50px;
+	border-top-right-radius: 50%;
+}
+
+.triangle {
+	transform: rotate(-60deg) skewX(-30deg) scale(1,.866);
+}
+.triangle:before {
+	transform: rotate(-135deg) skewX(-45deg) scale(1.414,.707) translate(0,-50%);
+}
+.triangle:after {
+	transform: rotate(135deg) skewY(-45deg) scale(.707,1.414) translate(50%);
+}
+

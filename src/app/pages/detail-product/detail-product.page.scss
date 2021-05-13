@@ -1,0 +1,158 @@
+ion-button{
+	--border-radius: 50px !important;
+}
+
+.buttonHeader{
+	font-size: 20px;
+}
+
+.imageProduct{
+	height: 180px;
+  z-index: 9999;
+  position: relative;
+  transform: rotate(20deg);
+	display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.titleProduct{
+	font-family: Poppins-Medium; font-size: 30pt; color: #000000;
+	letter-spacing: 1px;
+	line-height: 1;
+	padding: 0;
+  margin: 0;
+}
+
+.titleBrand{
+	font-family: Poppins-Medium; font-size: 12pt; color: #bdbcbc;
+	margin-left: -10px;
+}
+
+.titleDescription{
+	font-family: Poppins-Medium; font-size: 12pt; color: #a6a6a6;
+}
+
+.titlePrincipal{
+	font-family: Poppins-Medium; font-size: 15pt; color: #bdbcbc;
+}
+
+.titleReview{
+	font-family: Poppins-Medium; font-size: 12pt; color: #bdbcbc;
+	margin: 5px;
+}
+
+.titlePrice{
+	font-family: Poppins-Bold; 
+	font-size: 22pt; color: #f47f1f;
+	margin-top: -5px;
+	margin-left: 10%;
+	width: max-content;
+}
+
+.buttonFavorite{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	background: #ffffff;
+	border-radius: 50px;
+	height: 60px;
+	width: 60px;
+	font-size: 20px;
+}
+
+.triangleRotate{
+	margin-left: 37%; 
+	transform: rotate(-20deg);
+}
+
+.triangleRotateProduct{
+	margin-left: 30%;
+	transform: rotate(-20deg);
+	position: absolute;
+}
+
+.triangle {
+	position: relative;
+	background-color: #f8ba88;
+	text-align: left;
+	opacity: 0.6;
+}
+.triangle:before,
+.triangle:after {
+	content: '';
+	position: absolute;
+	background-color: inherit;
+}
+
+.triangle,
+.triangle:before,
+.triangle:after {
+	width:  130px;
+	height: 130px;
+	border-top-right-radius: 50%;
+}
+
+.triangle {
+	transform: rotate(-60deg) skewX(-30deg) scale(1,.866);
+}
+.triangle:before {
+	transform: rotate(-135deg) skewX(-45deg) scale(1.414,.707) translate(0,-50%);
+}
+.triangle:after {
+	transform: rotate(135deg) skewY(-45deg) scale(.707,1.414) translate(50%);
+}
+
+.bottomMenu {
+  background-color: #f3f3f3;
+  z-index: 9998; 
+  height: 30%;
+}
+
+.containerText{
+	padding-top: 30%;
+}
+
+.containerTextDiv{
+	margin-top: -20px;
+}
+
+.hide {
+  transition:visibility 4s, opacity 2s;
+  visibility:hidden;  opacity:0
+}
+
+.show {
+	height: 55%;
+  transition:visibility 0s, opacity 1s;
+  visibility:visible; opacity:1 
+}
+
+.bottomMenu2 {
+  z-index: 9998; 
+  height: 30%;
+}
+.hide {
+  transition:visibility 4s, opacity 2s;
+  visibility:hidden;  opacity:0
+}
+.show {
+  max-height: 500px;
+  transition:visibility 0s, opacity 1s;
+  visibility:visible; opacity:1 
+}
+
+.hide {
+  visibility: hidden;
+  opacity: 0;
+  max-height: 0px;
+  transition: max-height 0.5s, opacity 0.5s, visibility 0.5s linear;
+}
+
+.cardImg{
+  height: 100px;
+  width: 100px;
+  border-radius: 50px;
+}
+
+

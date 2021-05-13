@@ -1,9 +1,9 @@
 export let User = {
-	fullName: "",
+	fullName: 		"",
 	picture:  {
-		large: 			"",
-		medium: 		"",
-		thumbnail:	""
+			large: 			"",
+			medium: 		"",
+			thumbnail:	""
 	},
 	gender:		"",
 	email:		""

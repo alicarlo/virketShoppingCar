@@ -14,7 +14,19 @@ const routes: Routes = [
   {
     path: 'home-shopping-cart',
     loadChildren: () => import('./pages/home-shopping-cart/home-shopping-cart.module').then( m => m.HomeShoppingCartPageModule)
+  },  {
+    path: 'detail-product',
+    loadChildren: () => import('./pages/detail-product/detail-product.module').then( m => m.DetailProductPageModule)
+  },
+  {
+    path: 'shopping-cart',
+    loadChildren: () => import('./pages/shopping-cart/shopping-cart.module').then( m => m.ShoppingCartPageModule)
+  },
+  {
+    path: 'filter-product',
+    loadChildren: () => import('./pages/filter-product/filter-product.module').then( m => m.FilterProductPageModule)
   }
+
 
 
  

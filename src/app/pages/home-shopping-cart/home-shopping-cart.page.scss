@@ -5,6 +5,12 @@ ion-content {
   --padding-top: 20px;
 }
 
+ion-button{
+	--border-radius: 50px !important;
+}
+
+
+
 .thumball{
   //z-index: 3!important;
   //position: absolute;
@@ -51,6 +57,21 @@ ion-content {
   margin-top: 25%;
 }
 
+.buttonFavorite{
+	font-size: 20px;
+	border-radius: 20px;
+  height: 35px;
+  width: 35px;
+}
+
+.buttonColorRedFavorite{
+	background: #ff1f2c;
+}
+
+.buttonColorGrayFavorite{
+	background: #bdbcbc;
+}
+
 .heightSkeleton{
 	height: 35px;
 }
@@ -58,6 +79,11 @@ ion-content {
 .heightSliderSkeleton{
 	height:  175px;
 }
+
+.heightSkeletonProducts{
+	height: 200px;
+}
+
 
 .slide1{
   width: 275px !important;
@@ -103,7 +129,7 @@ ion-content {
 }
 
 .titleProduct{
-	font-family: Poppins-Medium; font-size: 10pt; color: #000000;
+	font-family: Poppins-Medium; font-size: 9pt; color: #000000;
 	margin-top: -10px;
 	margin-left: -2px;
 }
@@ -122,11 +148,22 @@ ion-content {
 	margin-left: 20px;
 }
 
+.finalPriceProducts{
+	font-family: Poppins-Bold; font-size: 14pt; color: #4f4e4e;
+	//margin-top: -15px;
+	//margin-left: 5px;
+	position: relative;
+  //padding: 0;
+  //margin: 0;
+	margin: -10px;
+  margin-left: 5px;
+}
+
 .finalPriceTotal{
 	font-family: Poppins-Medium; font-size: 12pt; color: #ffd056;
 	//margin-top: -15px;
 	text-decoration: line-through;
-	margin-left: -5px;
+	//margin-left: -5px;
 }
 
 .sizeContainerDiv{
@@ -141,15 +178,84 @@ ion-content {
     transform: rotate(20deg);
 }
 
+.imageProduct{
+	height: 65px;
+  z-index: 9999;
+  position: relative;
+  //margin-top: -25px;
+  transform: rotate(20deg);
+	//margin-left: 45%;
+	//margin-left: 75px;
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.buttonAdd{
+	height: 45px;
+    width: 60px;
+    background: #f47f1f;
+    /* position: absolute; */
+    /* bottom: 0; */
+    /* right: 0; */
+    /* left: 75%; */
+    /*position: absolute;
+    bottom: 0;
+    right: 0;*/
+		border-top-left-radius: 25px;
+}
+
+.buttonCart{
+	background: #f47f1f;
+	font-size: 20px;
+	border-radius: 50px;
+	height: 60px;
+	width: 60px;
+
+}
+
+.buttonExplore{
+	//background: #f47f1f;
+	font-size: 25px;
+	border-radius: 50px;
+	//height: 40px;
+	//width: 40px;
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.centerButton{
+	display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
 .divProductOffersPrice{
 	//width: 275px;
 	margin-top: -25px;
-	margin-left: -32%;
+	margin-left: -25px//-32%;
+}
+
+.divProductPrice{
+	//margin-top: -35px;
+	margin-left: -5px;
+	margin-top: 25px;
 }
 
 .triangleRotate{
 	margin-left: 37%; 
 	transform: rotate(-20deg);
+}
+
+.triangleRotateProduct{
+	margin-left: 30%;//37%; 
+	transform: rotate(-20deg);
+	//margin-top: 50px;
+	position: absolute;
+
 }
 
 .triangle {
@@ -165,6 +271,7 @@ ion-content {
 	position: absolute;
 	background-color: inherit;
 }
+
 .triangle,
 .triangle:before,
 .triangle:after {
@@ -182,5 +289,8 @@ ion-content {
 .triangle:after {
 	transform: rotate(135deg) skewY(-45deg) scale(.707,1.414) translate(50%);
 }
+
+
+
 
 

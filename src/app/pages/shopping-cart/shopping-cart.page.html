@@ -1,0 +1,145 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar class="backGroundColor2">
+		<p class="fontRalewayBold colorText titleSize1 titleHeader">Carrito de compras</p>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="backGroundColor2 ">
+
+	<ion-card *ngFor="let data of allCart.products">
+		<ion-grid >
+			<ion-row >
+				<ion-col size="2">
+					<img src="{{data.product_image}}" class="imgProduct center"> 
+				</ion-col>
+				<ion-col size="5">
+					<ion-item  lines="none">
+						<ion-label text-wrap>
+								<ion-text >
+										<h4 class="colorText fontPoppinsMedium colorTextBlack">{{data.product_name}}</h4>
+								</ion-text>
+
+								<ion-text >
+										<p class="fontRalewayMedium colorTextGray">Color {{data.color.name}}</p>
+								</ion-text>			
+						</ion-label>
+				</ion-item>
+				</ion-col>
+				<ion-col size="3">
+						<p class="fontPoppinsMedium colorText titleSize2 "><span style="margin-top: 35%;">$ {{data.product_price}}</span></p>
+				</ion-col>
+				<ion-col size="2">
+	
+					<ion-buttons  style="    margin-top: 50%;">
+						<ion-button class="buttonExplore center"  >
+								<ion-icon src="assets/icon/do_disturb2.svg"  ></ion-icon>
+						</ion-button>
+					</ion-buttons>
+				</ion-col>
+			</ion-row>
+		</ion-grid>
+	</ion-card>
+
+	<ion-fab vertical="bottom" horizontal="center" slot="fixed" style="bottom: -350px;" (click)="shoppingCart()">
+    <ion-fab-button color="orange" style="height: 70px; width: 70px;">
+			<ion-icon src="assets/icon/shopping_cart.svg"  ></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
+
+<ion-footer  style="background: #f3f3f3;" class="ion-no-border" >
+	<ion-toolbar style="border-top-left-radius: 45px; border-top-right-radius: 45px;border: 1px solid #ffffff; ">
+		<ion-grid >
+			<ion-row >
+					<ion-col size="12">
+						<ion-item  lines="none" >
+								<h3 class="fontRalewayBold colorText titleSize3 ">Información de pago</h3>
+						</ion-item>
+					</ion-col>
+
+					<ion-col size="8">
+						<ion-item  class="upItem"  lines="none">
+								<p class="fontPoppinsMedium colorTextGray2 titleSize2">Subtotal:</p>
+						</ion-item>
+					</ion-col>
+
+					<ion-col size="4">
+						<ion-item class="upItem"  lines="none">
+							<p  class="fontPoppinsMedium colorText titleSize2 ">$ {{allCart.subtotal}}</p>
+						</ion-item>
+					</ion-col>
+
+					<ion-col size="8">
+						<ion-item  class="upItem"  lines="none">
+								<p class="fontPoppinsMedium colorTextGray2 titleSize2">Costo de envio:</p>
+						</ion-item>
+					</ion-col>
+
+					<ion-col size="4">
+						<ion-item  class="upItem"  lines="none">
+								<p class="fontPoppinsMedium colorText titleSize2 ">$ {{allCart.shipping}}</p>
+						</ion-item>
+					</ion-col>
+
+					<ion-col size="8">
+						<ion-item  class="upItem"  lines="none">
+								<p class="fontRalewayBold colorText titleSize3 ">Total:</p>
+						</ion-item>
+					</ion-col>
+
+					<ion-col size="4">
+						<ion-item  class="upItem"  lines="none">
+								<p class="fontPoppinsMedium colorText titleSize2 "> $ {{allCart.total}}</p>
+						</ion-item>
+					</ion-col>
+
+					<ion-col size="12">
+						<ion-button color="orange" expand="full" shape="round"  style="height: 50px;">
+								<span style="color: #ffffff">Proceder al pago</span>
+						</ion-button>
+					</ion-col>
+					
+			</ion-row>
+		</ion-grid>
+		<br><br>
+		<div style="border-top-left-radius: 45px; border-top-right-radius: 45px;border: 1px solid #f6f6f6; ">
+			<ion-grid >
+				<ion-row >
+					<ion-col size="4">
+					
+							<ion-buttons  >
+								<ion-button class="buttonExplore"  (click)="back()">
+										<ion-icon src="assets/icon/explore.svg"  ></ion-icon>
+								</ion-button>
+							</ion-buttons>
+			
+						
+					</ion-col>
+					<ion-col size="4">
+	
+						<!--<div class="centerButton">
+							<ion-buttons style="--border-radius: 50px;" >
+								<ion-button class="buttonCart"  >
+										<ion-icon src="assets/icon/shopping_cart.svg"  ></ion-icon>
+								</ion-button>
+							</ion-buttons>
+						</div>
+						-->
+						
+					</ion-col>
+					<ion-col size="4">
+						<ion-buttons  >
+							<ion-button class="buttonExplore center"  >
+									<ion-icon src="assets/icon/list.svg"  ></ion-icon>
+							</ion-button>
+						</ion-buttons>
+					</ion-col>
+				</ion-row>
+			</ion-grid>
+			
+			<ion-icon src="assets/icon/shopping_cart.svg"  ></ion-icon>
+		</div>
+		
+	</ion-toolbar>
+
+</ion-footer>

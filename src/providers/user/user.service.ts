@@ -8,6 +8,7 @@ export class UserService {
 
   constructor(private _HTTP: HTTP, private _ApiUrlService: ApiUrlService) { }
 
+	//SE OBTIENE LA INFORMACION DEL USUARIO
 	public getUserProfile():Promise<any> {
     let api = this._ApiUrlService.apiUrl+this._ApiUrlService.apis[0];
     return new Promise ((resolve,reject)=>{
